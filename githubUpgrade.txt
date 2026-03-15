@@ -1,0 +1,4 @@
+cd /d E:\Pandora\pandora_site
+git add .
+git commit -m "update: Pandora site"
+git push
