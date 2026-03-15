@@ -1,0 +1,26 @@
+<svg width="500" height="720" viewBox="0 0 500 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="glass" x1="96" y1="126" x2="382" y2="608" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF6E7" stop-opacity="0.95"/>
+      <stop offset="0.5" stop-color="#FFD08A" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#A55C17" stop-opacity="0.35"/>
+    </linearGradient>
+    <linearGradient id="juice" x1="150" y1="265" x2="333" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF3A7"/>
+      <stop offset="1" stop-color="#F28C28"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(250 380) rotate(90) scale(280 220)">
+      <stop stop-color="#FFF2BD" stop-opacity="0.72"/>
+      <stop offset="1" stop-color="#FFF2BD" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="250" cy="620" rx="144" ry="32" fill="#000" fill-opacity="0.18"/>
+  <ellipse cx="250" cy="362" rx="194" ry="260" fill="url(#glow)"/>
+  <rect x="201" y="64" width="98" height="98" rx="18" fill="#F2DBAF" fill-opacity="0.86"/>
+  <rect x="217" y="28" width="66" height="60" rx="16" fill="#D98C22"/>
+  <path d="M124 178C124 144.863 150.863 118 184 118H316C349.137 118 376 144.863 376 178V510C376 546.451 346.451 576 310 576H190C153.549 576 124 546.451 124 510V178Z" fill="url(#glass)" stroke="rgba(255,255,255,0.55)" stroke-width="4"/>
+  <path d="M150 294C150 270.804 168.804 252 192 252H308C331.196 252 350 270.804 350 294V478C350 503.405 329.405 524 304 524H196C170.595 524 150 503.405 150 478V294Z" fill="url(#juice)"/>
+  <circle cx="250" cy="374" r="80" fill="white" fill-opacity="0.1"/>
+  <path d="M150 196C172 170 194 156 226 150" stroke="white" stroke-opacity="0.62" stroke-width="10" stroke-linecap="round"/>
+  <text x="250" y="232" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="26" font-family="Georgia, serif" letter-spacing="7">SOLIS</text>
+</svg>

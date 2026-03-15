@@ -1,0 +1,27 @@
+<svg width="500" height="720" viewBox="0 0 500 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="glass" x1="86" y1="126" x2="387" y2="606" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF9F2" stop-opacity="0.9"/>
+      <stop offset="0.45" stop-color="#F1D4BD" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#BD835E" stop-opacity="0.35"/>
+    </linearGradient>
+    <linearGradient id="juice" x1="133" y1="250" x2="353" y2="590" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF3D3"/>
+      <stop offset="1" stop-color="#D59156"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(256 386) rotate(90) scale(280 210)">
+      <stop stop-color="#FFF6E6" stop-opacity="0.65"/>
+      <stop offset="1" stop-color="#FFF6E6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="250" cy="620" rx="138" ry="30" fill="#000" fill-opacity="0.18"/>
+  <ellipse cx="250" cy="352" rx="182" ry="250" fill="url(#glow)"/>
+  <rect x="194" y="80" width="112" height="90" rx="16" fill="#E8D1B7" fill-opacity="0.7"/>
+  <rect x="215" y="30" width="70" height="72" rx="12" fill="#A07D63"/>
+  <rect x="204" y="18" width="92" height="28" rx="9" fill="#EEDCCA"/>
+  <path d="M126 168C126 139.281 149.281 116 178 116H322C350.719 116 374 139.281 374 168V525C374 554.271 350.271 578 321 578H179C149.729 578 126 554.271 126 525V168Z" fill="url(#glass)" stroke="rgba(255,255,255,0.55)" stroke-width="4"/>
+  <path d="M148 286C148 266.118 164.118 250 184 250H316C335.882 250 352 266.118 352 286V490C352 511.525 334.525 529 313 529H187C165.475 529 148 511.525 148 490V286Z" fill="url(#juice)" fill-opacity="0.9"/>
+  <path d="M156 180C170 160 190 148 216 144" stroke="white" stroke-opacity="0.6" stroke-width="10" stroke-linecap="round"/>
+  <path d="M173 271C186 261 198 257 219 255" stroke="white" stroke-opacity="0.35" stroke-width="8" stroke-linecap="round"/>
+  <text x="250" y="230" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="28" font-family="Georgia, serif" letter-spacing="8">ETERNA</text>
+</svg>

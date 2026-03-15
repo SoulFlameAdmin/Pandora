@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfumora Hero</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: #0b0b0f;
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      overflow: hidden;
+    }
+
+    .hero {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      min-height: 100svh;
+      overflow: hidden;
+      background: #111;
+      perspective: 1600px;
+    }
+
+    .split {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .panel {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transform-style: preserve-3d;
+      transition: transform .5s ease, z-index .3s ease;
+    }
+
+    .panel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,.12), rgba(0,0,0,.34));
+      pointer-events: none;
+      transition: opacity .45s ease, box-shadow .45s ease;
+    }
+
+    .panel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      filter: contrast(1.04) saturate(1.02);
+      transform: scale(1.02) translateZ(0);
+      transform-origin: center center;
+      transition: transform .6s cubic-bezier(.2,.8,.2,1), filter .45s ease;
+      will-change: transform, filter;
+    }
+
+    .left-panel {
+      background: #8e4f1f;
+    }
+
+    .left-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(197, 113, 35, 0.42);
+      mix-blend-mode: multiply;
+      z-index: 1;
+      pointer-events: none;
+      transition: opacity .45s ease;
+    }
+
+    .right-panel {
+      background: #1b2427;
+    }
+
+    .right-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(16, 36, 38, 0.28);
+      mix-blend-mode: multiply;
+      z-index: 1;
+      pointer-events: none;
+      transition: opacity .45s ease;
+    }
+
+    .divider {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 1px;
+      background: rgba(255,255,255,.08);
+      transform: translateX(-50%);
+      z-index: 3;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 4;
+      color: #f3f0ea;
+      pointer-events: none;
+    }
+
+    .top-row {
+      position: absolute;
+      top: 22px;
+      left: 0;
+      right: 0;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 0 34px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.78);
+    }
+
+    .top-row .left { justify-self: start; }
+    .top-row .center { justify-self: center; font-weight: 700; }
+    .top-row .right { justify-self: end; }
+
+    .headline {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 24px;
+    }
+
+    .headline-inner {
+      transform: translateY(-2vh);
+      line-height: .88;
+      text-transform: uppercase;
+      letter-spacing: .01em;
+      color: rgba(245, 241, 235, 0.95);
+      text-shadow: 0 10px 24px rgba(0,0,0,.15);
+      user-select: none;
+    }
+
+    .headline-top,
+    .headline-bottom {
+      display: block;
+      font-size: clamp(52px, 10vw, 156px);
+      font-weight: 900;
+    }
+
+    .bottom-left,
+    .bottom-right,
+    .bottom-center {
+      position: absolute;
+      bottom: 28px;
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.92);
+    }
+
+    .bottom-left,
+    .bottom-right {
+      font-size: clamp(18px, 1.7vw, 34px);
+      font-weight: 800;
+      letter-spacing: .04em;
+    }
+
+    .bottom-left { left: 34px; }
+    .bottom-right { right: 34px; }
+
+    .bottom-center {
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: rgba(255,255,255,.5);
+      white-space: nowrap;
+    }
+
+    .left-panel:hover {
+      z-index: 2;
+      transform: translateY(-10px);
+    }
+
+    .left-panel:hover img {
+      transform: scale(1.08) rotateY(10deg) translateZ(34px);
+      filter: contrast(1.08) saturate(1.12) brightness(1.05);
+    }
+
+    .left-panel:hover::before {
+      opacity: .2;
+    }
+
+    .left-panel:hover::after {
+      opacity: .72;
+      box-shadow: inset 0 0 0 2px rgba(255, 199, 120, .55), inset 0 0 80px rgba(255, 157, 63, .18);
+    }
+
+    .right-panel:hover {
+      z-index: 2;
+      transform: translateY(-10px);
+    }
+
+    .right-panel:hover img {
+      transform: scale(1.08) rotateY(-10deg) translateZ(34px);
+      filter: contrast(1.08) saturate(1.1) brightness(1.05);
+    }
+
+    .right-panel:hover::before {
+      opacity: .14;
+    }
+
+    .right-panel:hover::after {
+      opacity: .72;
+      box-shadow: inset 0 0 0 2px rgba(150, 236, 255, .45), inset 0 0 80px rgba(77, 194, 255, .14);
+    }
+
+    @media (max-width: 900px) {
+      .top-row { top: 16px; padding: 0 18px; font-size: 9px; }
+      .bottom-left { left: 18px; }
+      .bottom-right { right: 18px; }
+      .bottom-center { bottom: 18px; font-size: 9px; }
+      .bottom-left, .bottom-right { bottom: 18px; }
+      .headline-inner { transform: translateY(-1vh); }
+    }
+
+    @media (max-width: 640px) {
+      .split { grid-template-columns: 1fr 1fr; }
+      .headline-top, .headline-bottom { font-size: clamp(44px, 14vw, 92px); }
+      .bottom-left, .bottom-right { font-size: 16px; }
+      .top-row .left, .top-row .right { display: none; }
+      .top-row { grid-template-columns: 1fr; }
+      .top-row .center { justify-self: center; }
+      .bottom-center { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="hero">
+    <div class="split">
+      <section class="panel left-panel">
+        <img src="https://www.sliderrevolution.com/wp-content/uploads/revslider/Elegant-Perfume-Shop-Slider-Template/woman21.jpg" alt="Автошкола" />
+      </section>
+  <section class="panel right-panel" data-link="file:///E:/Pandora/pandora_site/pandora/farovelife_optimized/farovelife.html" tabindex="0" role="link" aria-label="Отвори FaroveLife">
+  <img src="https://www.sliderrevolution.com/wp-content/uploads/revslider/Elegant-Perfume-Shop-Slider-Template/man11.jpg" alt="LED светлини" />
+</section>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="overlay">
+      <div class="top-row">
+        <div class="left">About</div>
+        <div class="center">Perfumora</div>
+        <div class="right">Contact</div>
+      </div>
+
+      <div class="headline">
+        <div class="headline-inner">
+          <span class="headline-top">Soulflame</span>
+        </div>
+      </div>
+
+      <div class="bottom-left">Автошкола</div>
+      <div class="bottom-center">  © 2026 SoulFlame. Всички права върху съдържанието, дизайна, текстовете, изображенията, логото и концепцията са запазени. </div>
+      <div class="bottom-right">LED светлини</div>
+    </div>
+  </main>
+
+  <script>
+    const clickablePanels = document.querySelectorAll('.panel[data-link]');
+
+    clickablePanels.forEach((panel) => {
+      const openPanelLink = () => {
+        const targetLink = panel.getAttribute('data-link');
+        if (targetLink) {
+          window.location.href = targetLink;
+        }
+      };
+
+      panel.addEventListener('click', openPanelLink);
+
+      panel.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openPanelLink();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

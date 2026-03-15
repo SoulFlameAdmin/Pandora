@@ -1,0 +1,13 @@
+<svg width="220" height="56" viewBox="0 0 220 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="1" y="1" width="218" height="54" rx="27" stroke="rgba(255,255,255,0.35)" fill="rgba(12,12,16,0.55)"/>
+  <circle cx="30" cy="28" r="13" fill="url(#g)"/>
+  <path d="M30 16C32 21 36 24 42 26C36 28 32 32 30 40C28 32 24 28 18 26C24 24 28 21 30 16Z" fill="white" fill-opacity="0.95"/>
+  <text x="56" y="24" fill="white" font-size="12" font-family="Georgia, serif" letter-spacing="2">PANDORA</text>
+  <text x="56" y="38" fill="rgba(255,255,255,0.65)" font-size="10" font-family="Arial, sans-serif" letter-spacing="4">PARFUMORA</text>
+  <defs>
+    <linearGradient id="g" x1="17" y1="15" x2="43" y2="41" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFE5C1"/>
+      <stop offset="1" stop-color="#A86A33"/>
+    </linearGradient>
+  </defs>
+</svg>
